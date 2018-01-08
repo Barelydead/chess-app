@@ -47,3 +47,11 @@ Det går att starta enbart redovisa servern i flera versioner. Detta görs med c
 De olika versioner kommer man åt på: `http://localhost:3060`, `http://localhost:3080`, `http://localhost:3090`.
 
 För att stoppa dessa servrar `npm run docker-stop-v`
+
+## Realtid
+Jag har använt realtid i min app med hjälp av pluginet socket.io. Jag använder mig av realtid för att användare ska kunna chatta med varandra i lobbyn och det används även när ett spel är igång. Detta gör att användarna får uppdateringar som gjort snabbare än med andra metoder.
+
+## Databas
+Jag har valt att använda mig av mongoDB som databas. Jag använder databasen i framförallt två sammanhang. För att spara användaruppgifter och för att lagra chatten. När man hoppas in i lobbyn så hämtas de senaste inläggen till chatten så att man kan se inlägg som gjorts även när man inte var ansluten.
+
+## Backend
