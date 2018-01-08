@@ -20,7 +20,7 @@ var options = {
 };
 
 
-describe("test chat", function(done) {
+describe("Test Lobby", function(done) {
     before(function() {
         server.listen(3000);
         chat(io);
