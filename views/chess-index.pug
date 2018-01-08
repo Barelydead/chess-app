@@ -1,0 +1,19 @@
+extends layout
+
+block header
+
+
+block content
+    h2#gameId !{gameId}
+        
+    div.board#board
+        each val in board
+            div(class="square",
+            data-square=val.square)
+            
+            
+    div.info#info-box
+        p Welcome to the game !{username}
+
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/chess-client.js")

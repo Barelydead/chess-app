@@ -1,0 +1,29 @@
+version: "3"
+services:
+    node6:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-node-6
+        volumes:
+            - ./:/app/
+        ports:
+            - "3060:3000"
+        command: "npm start"
+    node8:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-node-8
+        volumes:
+            - ./:/app/
+        ports:
+            - "3080:3000"
+        command: "npm start"
+    node9:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-node-9
+        volumes:
+            - ./:/app/
+        ports:
+            - "3090:3000"
+        command: "npm start"

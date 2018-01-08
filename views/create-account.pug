@@ -1,0 +1,17 @@
+extends layout
+
+block header
+
+
+block content
+    
+    div.login-wrap
+        h2 Skapa konto
+        form(method="post" action="")
+            label Username:
+            input(type="text" name="username")
+            label Password:
+            input(type="password" name="password")
+            label Password again:
+            input(type="password" name="rePassword")
+            input(type="submit" value="skapa användare")

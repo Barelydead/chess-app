@@ -1,0 +1,23 @@
+extends layout
+
+block header
+
+
+block content
+    
+    div.login-wrap
+        h1 login
+        
+        form(method="POST" action="")
+            label Username:
+            input(type="text" name="username")
+            label Password:
+            input(type="password" name="password")
+            input(type="submit" value="Login")
+                
+                
+        p !{info}
+        
+        p Har du inget konto så går det snabbt att skapa ett 
+            a(href="/user/create") här
+            

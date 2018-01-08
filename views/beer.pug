@@ -1,0 +1,64 @@
+extends layout
+
+block header
+    h1= title
+
+block content
+    h2 Beers
+
+    div.list
+        table
+            thead
+                tr
+                    th type
+                    th brand
+                    th size
+                    th _id
+                    th delete
+                    th edit
+            
+            tbody
+                each val in beer
+                    tr
+                        td= val.type
+                        td= val.brand
+                        td= val.size
+                        td= val._id
+                        td 
+                            a(href="delete?id=" + val._id) delete
+                        td 
+                            a(href="show?edit_id=" + val._id) edit
+    
+
+    div.insert
+        h2 Add new beer to collection
+        form(method="POST")
+            label Brand
+            input(type="text" placeholder="brand" name="brand")
+            label Type
+            input(type="text" placeholder="type" name="type")
+            label Size
+            input(type="text" placeholder="size" name="size")
+            input(type="submit" value="add new beer")
+                
+        
+        
+    if item[0] === undefined
+        - item[0] = "";
+    div.update
+        h2 Update a beer
+        form#update(method="POST" action="/db/edit")
+            label Brand
+            input(type="text" placeholder="brand" name="brand" value=item[0].brand)
+            label Type
+            input(type="text" placeholder="type" name="type" value=item[0].type)
+            label Size
+            input(type="text" placeholder="size" name="size" value=item[0].size)
+            input(type="hidden" name="id" value=item[0]._id)
+            input(type="submit" value="update beer")
+                
+                
+            
+        
+
+    script(src="/js/form.js")

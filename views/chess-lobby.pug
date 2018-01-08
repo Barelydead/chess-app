@@ -1,0 +1,35 @@
+extends layout
+
+block header
+
+
+block content    
+    div.lobby-wrap
+        div.chat
+            div.chat#chat-window   
+            input.chat#chat-input(type="text", placeholder="Enter chat message") 
+                    
+        div.connected-users
+            p Connected users: 
+                span#nr-users 0
+            ul#user-list
+    div.room-list
+        div#room-list
+                
+    div.rooms
+
+        form#room-form.room-form
+            h1 Create new room
+            
+            label Room name:
+            input(type="text")
+            label Skill level
+            input(type="text")
+            input(type="submit" value="Create")
+                
+        div.room-list
+            div#room-list
+            
+                
+    script(src="/socket.io/socket.io.js")
+    script(src="/js/lobby-client.js")

@@ -1,0 +1,27 @@
+version: "3"
+services:
+    mongodb:
+        image: mongo
+        environment:
+            - MONGO_DATA_DIR=/data/db
+        volumes:
+            - /data/db:/data/db
+        ports:
+            - 27017:27017
+        command: mongod
+
+
+    express:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-alpine-node
+        volumes:
+            - ./:/app/
+            - /app/node_modules/
+        ports:
+            - 3000:3000
+        environment:
+            - DBWEBB_DSN=mongodb://mongodb:27017/chess
+        links:
+            - mongodb
+        command: "npm start"

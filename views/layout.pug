@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+  body
+    div.main-wrap
+        include includes/navbar.pug
+                    
+        main.main
+            header.header
+                block header
+            div.content
+                block content
+                        
+        footer.footer       
+            include includes/footer.pug
+            
+                

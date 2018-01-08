@@ -1,0 +1,28 @@
+div.navbar
+    div.navbar-logo
+        a(href="/") 
+            img(src="/img/chess-clock.png")
+
+    ul.navbar-nav
+        li(class=path === "home" ? "active" : "disabled")
+            a(href="/") Hem
+            
+        li(class=path === "about" ? "active" : "disabled")
+            a(href="/about") Om
+                
+        li(class=path === "lobby" ? "active" : "disabled")
+            a(href="/lobby") 
+                <i class="fa fa-chess" aria-hidden="true"></i> Lobby
+                
+        li(class=path === "user" ? "active" : "disabled")
+            a(href="/user/login" title="login")
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+        li
+            a(href="/user/logout" title="logout") 
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+div.user-box
+    if (username) 
+        span logged in as 
+            span#username !{username} 
+    else 
+        span not logged in
