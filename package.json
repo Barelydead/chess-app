@@ -17,7 +17,7 @@
         "test-scrutinizer": "nyc --all --reporter=clover mocha test/**/*.js",
         "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
         "report-codecov": "nyc report --reporter=lcov > coverage.lcov && codecov",
-        "test": "nyc --all --reporter=html --reporter=text mocha test/**/*.js",
+        "test": "nyc --all --reporter=html --reporter=text mocha test/**/*.js && npm run lint",
         "eslint": "eslint .",
         "stylelint": "stylelint **/*.css",
         "lint": "npm run eslint && npm run stylelint"
@@ -46,7 +46,7 @@
         "js-yaml": "^3.10.0",
         "jsonlint": "^1.6.2",
         "mocha": "^4.0.1",
-        "nyc": "^11.3.0",
+        "nyc": "^11.4.1",
         "codecov": "^3.0.0",
         "coveralls": "^3.0.0",
         "stylelint": "^8.2.0",
