@@ -285,6 +285,30 @@ input {
     margin-top: 60px;
 }
 
+.room-list {
+    float: left;
+    width: 70%;
+    background: lightblue;
+    padding: 20px;
+}
+
+.rooms {
+    float: left;
+    width: 30%;
+    background: lightsalmon;
+    padding: 20px;
+}
+
+#room-list:nth-child(even) {
+    background: red;
+}
+
+.room-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 25px;
+}
 
 /* <!---------------- Chat --------------> */
 
@@ -312,9 +336,3 @@ input {
 }
 
 /* ROOMS */
-
-.rooms {
-    margin-top: 2em;
-    border-top: 0.5px solid black;
-    clear: both;
-}

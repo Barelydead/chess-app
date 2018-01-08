@@ -53,6 +53,7 @@
             });
 
             listItem.append(button);
+            listItem.classList.add("room-item")
             roomList.append(listItem);
         }
     }
