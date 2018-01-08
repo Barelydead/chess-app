@@ -14,10 +14,10 @@
         "docker-stop-v": "docker-compose -f docker-compose-version.yml up -d",
         "start-docker": "docker-compose up -d",
         "stop-docker": "docker-compose down",
-        "test-scrutinizer": "nyc --all --reporter=clover mocha --timeout test/**/*.js",
+        "test-scrutinizer": "nyc --reporter=clover mocha --timeout 10000 --reporter spec \"test/**/*.js\"",
         "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
         "report-codecov": "nyc report --reporter=lcov > coverage.lcov && codecov",
-        "test": "nyc --all --reporter=html --reporter=text mocha test/**/*.js",
+        "test": "nyc --reporter=html --reporter=text mocha --timeout 10000 --reporter spec \"test/**/*.js\"",
         "eslint": "eslint .",
         "stylelint": "stylelint **/*.css",
         "lint": "npm run eslint && npm run stylelint"
