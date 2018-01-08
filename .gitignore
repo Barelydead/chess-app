@@ -3,3 +3,4 @@
 /.bin
 /.nyc_output
 /.circleci
+/data
