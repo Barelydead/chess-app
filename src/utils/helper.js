@@ -1,10 +1,6 @@
 var bcrypt = require('bcrypt');
 
 module.exports = {
-    strip_tags(text) {
-        return text.replace(/(<([^>]+)>)/ig, "");
-    },
-
     getHash(params) {
         let password = params.password;
         let repassword = params.rePassword;
