@@ -49,11 +49,6 @@ describe("test chess", function(done) {
                     client2.disconnect();
                     done();
                 });
-
-                client.on("color", function(data) {
-                    assert.equal(data[0], "andersson");
-                    assert.equal(data[1], "svensson");
-                });
             });
         });
 
