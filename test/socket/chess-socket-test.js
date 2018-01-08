@@ -1,4 +1,4 @@
-var assert = require("assert");
+var assert   = require("assert");
 
 // ioClient
 var ioClient = require('socket.io-client');
