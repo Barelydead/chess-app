@@ -21,7 +21,10 @@ module.exports = function (io) {
                     started = true;
                     game.init(null, roomId[gameId][0].username, roomId[gameId][1].username);
 
-                    io.to(gameId).emit("color", [roomId[gameId][0].username, roomId[gameId][1].username]);
+                    io.to(gameId).emit("color",
+                        [roomId[gameId][0].username,
+                            roomId[gameId][1].username]
+                    );
                     io.to(gameId).emit("start game", game.status());
                 }
             // Join the first player to the gameroom
@@ -45,7 +48,7 @@ module.exports = function (io) {
             game.movePiece(data.x, data.y, data.nx, data.ny);
 
             io.to(data.room).emit("move", game.status());
-        })
+        });
 
         socket.on('disconnect', function() {
             io.to(socket.gameRoom).emit("player disconnect");

@@ -25,15 +25,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(session({
-  cookieName: 'session',
-  secret: 'QWe23jkjsifowehr890324ujniufnASDkjhwenfkj',
-  duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000,
+    cookieName: 'session',
+    secret: 'QWe23jkjsifowehr890324ujniufnASDkjhwenfkj',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
 }));
 
 app.use('/*', function(req, res, next) {
     if (req.session.user) {
-        app.locals.username = req.session.user
+        app.locals.username = req.session.user;
     } else {
         app.locals.username = null;
     }

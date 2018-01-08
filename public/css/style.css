@@ -52,8 +52,8 @@ img {
 .user-box {
     display: inline-block;
     padding: 10px;
-    background: #F2CF61;
-    float:right;
+    background: #f2cf61;
+    float: right;
 }
 
 
@@ -97,8 +97,6 @@ img {
 
 /* <!---------------- Main --------------> */
 
-.header {
-}
 
 .header h1 {
     font-weight: bold;
@@ -182,7 +180,7 @@ input {
     padding: 2.6%;
     box-sizing: content-box;
     border-radius: 25px;
-    float:left;
+    float: left;
 }
 
 
@@ -218,41 +216,53 @@ input {
 }
 
 #w-pawn {
-    background-image: url("../img/pieces/w-pawn.png")
+    background-image: url("../img/pieces/w-pawn.png");
 }
+
 #b-pawn {
-    background-image: url("../img/pieces/b-pawn.png")
+    background-image: url("../img/pieces/b-pawn.png");
 }
+
 #w-bishop {
-    background-image: url("../img/pieces/w-bishop.png")
+    background-image: url("../img/pieces/w-bishop.png");
 }
+
 #b-bishop {
-    background-image: url("../img/pieces/b-bishop.png")
+    background-image: url("../img/pieces/b-bishop.png");
 }
+
 #w-rook {
-    background-image: url("../img/pieces/w-rook.png")
+    background-image: url("../img/pieces/w-rook.png");
 }
+
 #b-rook {
-    background-image: url("../img/pieces/b-rook.png")
+    background-image: url("../img/pieces/b-rook.png");
 }
+
 #w-queen {
-    background-image: url("../img/pieces/w-queen.png")
+    background-image: url("../img/pieces/w-queen.png");
 }
+
 #b-queen {
-    background-image: url("../img/pieces/b-queen.png")
+    background-image: url("../img/pieces/b-queen.png");
 }
+
 #w-king {
-    background-image: url("../img/pieces/w-king.png")
+    background-image: url("../img/pieces/w-king.png");
 }
+
 #b-king {
-    background-image: url("../img/pieces/b-king.png")
+    background-image: url("../img/pieces/b-king.png");
 }
+
 #w-knight {
-    background-image: url("../img/pieces/w-knight.png")
+    background-image: url("../img/pieces/w-knight.png");
 }
+
 #b-knight {
-    background-image: url("../img/pieces/b-knight.png")
+    background-image: url("../img/pieces/b-knight.png");
 }
+
 
 
 /* Lobby */

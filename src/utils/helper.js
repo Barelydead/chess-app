@@ -11,7 +11,8 @@ module.exports = {
         }
 
         var hash = bcrypt.hashSync(password, saltRounds);
-        return hash
+
+        return hash;
     },
 
     verifyPassword(password, hash) {

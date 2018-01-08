@@ -40,19 +40,6 @@ module.exports = {
 
 
     /**
-     * close db.
-     */
-    async getCollection(collection) {
-        const db  = await this.connect();
-        const col = await db.collection(collection);
-        const res = await col.find().toArray();
-
-        await this.close(db);
-
-        return res;
-    },
-
-    /**
      * Get Item
      */
     async getItem(collection, id) {

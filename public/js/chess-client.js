@@ -9,13 +9,12 @@
     var clickCount = 0;
     var color = "";
     var data = {};
+
     data.room = gameId;
-    console.log(username)
 
 
     for (var i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("click", function(event) {
-
+        squares[i].addEventListener("click", function() {
             if (clickCount === 0) {
                 this.classList.toggle("selected");
 
@@ -32,8 +31,7 @@
 
                 socket.emit("move", data);
             }
-
-        })
+        });
     }
 
     function clearSelected() {
@@ -42,7 +40,7 @@
         }
     }
 
-    function updateScroll(){
+    function updateScroll() {
         infoBox.scrollTop = infoBox.scrollHeight;
     }
 
@@ -55,10 +53,9 @@
         socket.emit("room id", {gameId: gameId, username: username});
 
         infoBox.innerHTML += "You joined room " + gameId + "<br>";
-    })
+    });
 
     socket.on("color", function(data) {
-        console.log(data)
         if (data[0] === username) {
             color = "white";
             gameBoard.classList.add("rotated-board");
@@ -88,18 +85,20 @@
         updateScroll();
         infoBox.innerHTML += status["Last move"].toString() + "<br>";
         infoBox.innerHTML += status["Player to act"].toString() + "'s turn to act" + "<br>";
-    })
+    });
 
     socket.on("start game", function(status) {
         var board = status.Board;
 
         for (var i = 0; i < board.length; i++) {
-            squares[i].setAttribute("data-piece", board[i].piece.color + " " + board[i].piece.symbol);
+            squares[i].setAttribute("data-piece", board[i].piece.color
+                                    + " "
+                                    + board[i].piece.symbol);
             squares[i].setAttribute("id", board[i].piece.img);
         }
 
         infoBox.innerHTML += "Game is starting...<br> White to act <br>";
-    })
+    });
 
     socket.on("player disconnect", function() {
         infoBox.innerHTML += "Your opponent disconnected, game is closing in 10 sec..<br>";
@@ -107,7 +106,5 @@
         setTimeout( function() {
             window.location.href = "http://localhost:3000/lobby";
         }, 10000);
-    })
-
-
+    });
 })();

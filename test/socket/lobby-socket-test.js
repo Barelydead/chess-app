@@ -51,7 +51,7 @@ describe("test chat", function(done) {
     //     })
     // });
 
-    it('should add user to all serverInfo', function(done){
+    it('should add user serverInfo', function(done){
         var client = ioClient.connect(socketURL, options);
         var client2 = ioClient.connect(socketURL, options);
 

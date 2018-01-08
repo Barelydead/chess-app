@@ -14,7 +14,7 @@ router.get('/create', function(req, res) {
 
 /* GET about page. */
 router.post('/create', function(req, res) {
-    let params = req.body
+    let params = req.body;
     let hash = helper.getHash(req.body);
 
     params.password = hash;
@@ -42,23 +42,24 @@ router.get('/login', function(req, res) {
 router.get('/logout', function(req, res) {
     req.session.reset();
 
-    res.redirect("/")
+    res.redirect("/");
 });
 
 
 /* GET about page. */
 router.post('/login', async function(req, res) {
-    let params = req.body
+    let params = req.body;
 
     try {
         let user = await db.getUser("users", params.username);
+
         if (!helper.verifyPassword(params.password, user[0].password)) {
             res.redirect("/user/login?info=" + encodeURIComponent("Login failed, try again"));
         } else {
             req.session.user = params.username;
             res.redirect("/user/login?info=" + encodeURIComponent("Login success"));
         }
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 });

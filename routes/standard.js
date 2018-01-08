@@ -21,6 +21,7 @@ router.get('/about', function(req, res) {
 router.get('/lobby', function(req, res) {
     if (!req.session.user) {
         let info = encodeURIComponent("Login to use lobby");
+
         res.redirect("/user/login?info=" + info);
     }
 

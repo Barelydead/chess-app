@@ -11,6 +11,7 @@ module.exports = function (io) {
         socket.on("username", async function(username) {
             try {
                 let chat = await db.getChat();
+
                 io.sockets.emit("prefill chat", chat);
             } catch (e) {
                 console.log("DB ERROR: ", e);
@@ -22,7 +23,7 @@ module.exports = function (io) {
             }
 
             io.sockets.emit("user list", serverInfo);
-        })
+        });
 
         socket.on('disconnect', function() {
             delete serverInfo.users[socket.username];
@@ -33,7 +34,7 @@ module.exports = function (io) {
             data.time = new Date();
 
             try {
-                db.insertItem("chat", data)
+                db.insertItem("chat", data);
             } catch (e) {
                 console.log("DB ERROR: ", e);
             }
@@ -45,7 +46,7 @@ module.exports = function (io) {
             serverInfo.games.push(room);
 
             io.sockets.emit("user list", serverInfo);
-        })
+        });
 
 
         socket.on("joined room", function(id) {
@@ -61,6 +62,6 @@ module.exports = function (io) {
             }
 
             io.sockets.emit("user list", serverInfo);
-        })
+        });
     });
 };

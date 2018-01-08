@@ -4,12 +4,13 @@ var router = express.Router();
 /* GET about page. */
 router.get('/:gameId', function(req, res) {
     if (!req.session.user) {
-        res.redirect("/user/login")
+        res.redirect("/user/login");
     }
 
     const game = require("oop-chess");
-    game.init();
+    let gameId;
 
+    game.init();
     gameId = req.params.gameId;
     res.render('chess-index', {
         title: 'game',
