@@ -8,18 +8,13 @@ var serverInfo = {
 
 module.exports = function (io) {
     io.on('connection', function(socket) {
-        console.log("connected to lobby");
-
         socket.on("username", async function(username) {
             try {
                 let chat = await db.getChat();
-                console.log(chat);
                 io.sockets.emit("prefill chat", chat);
             } catch (e) {
                 console.log("DB ERROR: ", e);
             }
-
-
 
             socket.username = username;
             if (!serverInfo.users[username]) {
@@ -30,7 +25,6 @@ module.exports = function (io) {
         })
 
         socket.on('disconnect', function() {
-            console.log("disconnected");
             delete serverInfo.users[socket.username];
             io.sockets.emit("user list", serverInfo);
         });
@@ -38,17 +32,13 @@ module.exports = function (io) {
         socket.on('chat message', function(data) {
             data.time = new Date();
 
-            db.insertItem("chat", data)
+            try {
+                db.insertItem("chat", data)
+            } catch (e) {
+                console.log("DB ERROR: ", e);
+            }
 
             io.sockets.emit('chat message', data);
-        });
-
-        socket.on("private message", function(data) {
-            data.class = "private";
-
-            if (typeof users[data.to] !== "undefined") {
-                socket.to(users[data.to].id).emit("recieve private", data);
-            }
         });
 
         socket.on("new room", function(room) {
