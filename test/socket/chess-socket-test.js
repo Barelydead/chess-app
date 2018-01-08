@@ -40,24 +40,37 @@ describe("test chess", function(done) {
             client2.on("connect", function() {
                 client.emit("room id", {roomId: 101, username: "andersson"});
                 client.emit("room id", {roomId: 101, username: "svensson"});
+
+                client.on("start game", function(data) {
+                    assert.ok(data.Board.length === 64);
+                    assert.ok(data["Player to act"] === "white");
+                    assert.ok(data["White name"] === "andersson");
+                    client.disconnect();
+                    client2.disconnect();
+                    done();
+                });
+
+                client.on("color", function(data) {
+                    assert.equal(data[0], "andersson");
+                    assert.equal(data[1], "svensson");
+                });
             });
         });
 
-        client.on("color", function(data) {
-            assert.equal(data[0], "andersson");
-            assert.equal(data[1], "svensson");
-        })
-
-        client.on("start game", function(data) {
-            assert.ok(data.Board.length === 64);
-            assert.ok(data["Player to act"] === "white");
-            assert.ok(data["White name"] === "andersson");
-            client.disconnect();
-            client2.disconnect();
-            done();
-        })
-
-        // client.emit("move", {x:"B", y:2, nx:"C", ny:2})
+        // client.on("color", function(data) {
+        //     assert.equal(data[0], "andersson");
+        //     assert.equal(data[1], "svensson");
+        // })
+        //
+        // client.on("start game", function(data) {
+        //     assert.ok(data.Board.length === 64);
+        //     assert.ok(data["Player to act"] === "white");
+        //     assert.ok(data["White name"] === "andersson");
+        //     client.disconnect();
+        //     client2.disconnect();
+        // })
+        //
+        // // client.emit("move", {x:"B", y:2, nx:"C", ny:2})
         //
         // client.on("move", function(data) {
         //     console.log("move")
