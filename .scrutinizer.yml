@@ -3,6 +3,8 @@ checks:
         code_rating: true
 
 build:
+    enviroment:
+        node: 8
     tests:
         override:
             -
