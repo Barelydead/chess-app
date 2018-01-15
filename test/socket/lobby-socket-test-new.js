@@ -9,7 +9,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 //io functions
-var chat = require("../../src/socket/chess-socket");
+var lobby = require("../../src/socket/lobby-socket");
 
 
 
@@ -20,10 +20,10 @@ var options = {
 };
 
 
-describe("test chess", function() {
+describe("test lobby socket", function() {
     before(function() {
         server.listen(3000);
-        chat(io);
+        lobby(io);
     });
 
     after(function(done) {
@@ -31,22 +31,28 @@ describe("test chess", function() {
         done();
     });
 
-    it('Should init game with 2 players', function(done) {
+    it('Should add the new room to socketdata and broadcast', function(done) {
         this.timeout(6000);
         let client = ioClient.connect(socketURL, options);
-        let client2 = ioClient.connect(socketURL, options);
 
         client.on("connect", function() {
-            client.emit("room id", {roomId: 101, username: "andersson"});
+            let room = {
+                name: "test name",
+                skill: "test skill",
+                owner: "test owner",
+                connected: 0,
+                id: 100
+            };
+
+            client.emit("new room", room);
         });
 
-        client2.on("connect", function() {
-            client.emit("room id", {roomId: 101, username: "svensson"});
-        });
-
-        client.on("start game", function(data) {
+        client.on("user list", function(data) {
             client.disconnect();
-            client2.disconnect();
+
+            assert.equal(data.games[0].name, "test name");
+            assert.equal(data.games[0].skill, "test skill");
+            assert.equal(data.games[0].owner, "test owner");
             done();
         });
     });
