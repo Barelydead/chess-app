@@ -3,7 +3,7 @@ checks:
         code_rating: true
 
 build:
-    enviroment:
+    environment:
         node: 'v8.4.0'
     tests:
         override:
