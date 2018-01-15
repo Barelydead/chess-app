@@ -17,9 +17,7 @@
         "test-scrutinizer": "nyc --all --reporter=clover mocha --reporter spec \"test/**/*.js\"  --exit",
         "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
         "report-codecov": "nyc report --reporter=lcov > coverage.lcov && codecov",
-        "pretest": "docker-compose up -d mongodb",
         "test": "nyc --all --reporter=html --reporter=text mocha --reporter spec \"test/**/*.js\" --exit",
-        "post-test": "npm run stop-docker",
         "eslint": "eslint .",
         "stylelint": "stylelint **/*.css",
         "lint": "npm run eslint && npm run stylelint"
