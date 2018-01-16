@@ -58,36 +58,36 @@ describe("test chess", function() {
         });
     });
 
-    it('Should be able for white to move', function(done) {
-        this.timeout(6000);
-        let client = ioClient.connect(socketURL, options);
-        let client2 = ioClient.connect(socketURL, options);
-
-        client.on("connect", function() {
-            client.emit("room id", {roomId: 102, username: "andersson"});
-        });
-
-        client2.on("connect", function() {
-            client2.emit("room id", {roomId: 102, username: "svensson"});
-
-            let data = {
-                x: "B",
-                y: 2,
-                nx: "C",
-                ny: 2,
-                color: "white"
-            };
-
-            client.emit("move", data)
-        });
-
-
-        client2.on("move", function(data) {
-            assert.equal(data["Player to act"], "black");
-            assert.equal(data["Board"].length, 64);
-            client.disconnect();
-            client2.disconnect();
-            done();
-        })
-    });
+    // it('Should be able for white to move', function(done) {
+    //     this.timeout(6000);
+    //     let client = ioClient.connect(socketURL, options);
+    //     let client2 = ioClient.connect(socketURL, options);
+    //
+    //     client.on("connect", function() {
+    //         client.emit("room id", {roomId: 102, username: "andersson"});
+    //     });
+    //
+    //     client2.on("connect", function() {
+    //         client2.emit("room id", {roomId: 102, username: "svensson"});
+    //
+    //         let data = {
+    //             x: "B",
+    //             y: 2,
+    //             nx: "C",
+    //             ny: 2,
+    //             color: "white"
+    //         };
+    //
+    //         client.emit("move", data)
+    //     });
+    //
+    //
+    //     client2.on("move", function(data) {
+    //         assert.equal(data["Player to act"], "black");
+    //         assert.equal(data["Board"].length, 64);
+    //         client.disconnect();
+    //         client2.disconnect();
+    //         done();
+    //     })
+    // });
 });

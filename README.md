@@ -39,8 +39,8 @@ Mitt repo omfattas av unittest med mocha och linters eslint och stylelint.
 
 ## Docker
 
-##### Starta redovisa och mongoDB
-För att starta redovisa servern och mongodbservern kör `npm run start-docker` och rikta webläsaren till http://localhost:3000 för att komma åt sidan. `npm run stop-docker` avslutar servrarna.
+##### Starta node och mongoDB
+För att starta appen som en helthet med både nodeservern och mongodbservern så använd `npm run start-docker`. Det går nu att rikta webbläsaren till http://localhost:3000 för att komma åt sidan. Vill du avsluta så använd `npm run stop-docker`.
 
 ##### Starta redovisa i flera versioner
 Det går att starta enbart redovisa servern i flera versioner. Detta görs med commando `npm run docker-start-v`.
