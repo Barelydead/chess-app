@@ -3,7 +3,8 @@ checks:
         code_rating: true
 
 filter:
-    excluded_paths: [/public/js/*]
+    excluded_paths:
+        'public/js/'
 
 build:
     environment:
