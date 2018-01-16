@@ -2,6 +2,9 @@ checks:
     javascript:
         code_rating: true
 
+filter:
+    excluded_paths: [/public/js/*]
+
 build:
     environment:
         node: 'v8.4.0'
