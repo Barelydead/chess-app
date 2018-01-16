@@ -44,11 +44,6 @@ describe("test chess", function() {
             client.emit("room id", {roomId: 101, username: "svensson"});
         });
 
-        client.on("color", function(data) {
-            assert.equal(data[0], "andersson");
-            assert.equal(data[1], "svensson");
-        })
-
         client.on("start game", function(data) {
             assert.equal(data["Player to act"], "white");
             assert.equal(data["Board"].length, 64);
