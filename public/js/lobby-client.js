@@ -45,7 +45,7 @@
                                + "<p>Connected: " + data[i].connected + "</p>"
                                + "<p>skill: " + data[i].skill + "</p>";
 
-            button.setAttribute("href", "http://localhost:3000/chess/" + data[i].id);
+            button.setAttribute("href", "/chess/" + data[i].id);
             button.setAttribute("data-id", data[i].id);
             button.innerHTML = "Join game";
             button.addEventListener("click", function() {

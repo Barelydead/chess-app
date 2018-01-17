@@ -187,9 +187,12 @@ input {
 .info {
     float: left;
     margin-left: 4em;
-    width: 42%;
+    width: 30%;
     height: 565px;
     border: 1px solid black;
+    padding: 20px;
+    overflow: auto;
+
 }
 
 .square {
@@ -336,3 +339,11 @@ input {
 }
 
 /* ROOMS */
+
+
+/* Resopnsive */
+@media (max-width: 1000px) {
+    .main-wrap {
+        width: auto;
+    }
+}
