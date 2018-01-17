@@ -104,7 +104,7 @@
         infoBox.innerHTML += "Your opponent disconnected, game is closing in 10 sec..<br>";
 
         setTimeout( function() {
-            window.location.href = "http://localhost:3000/lobby";
+            window.location.href = "/3000/lobby";
         }, 10000);
     });
 })();
