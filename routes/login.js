@@ -15,6 +15,15 @@ router.get('/create', function(req, res) {
 /* GET about page. */
 router.post('/create', function(req, res) {
     let params = req.body;
+
+    try {
+        let user = await db.getUser("users", params.username);
+
+        console.log(user);
+    } catch (e) {
+        console.log(e);
+    }
+
     let hash = helper.getHash(req.body);
 
     params.password = hash;
