@@ -72,11 +72,12 @@ Applikationen är publicerad till en driftserver. Servern är en dropplet från 
 
 ## Ports and DSN
 Node-servern körs som default på `DBWEBB_PORT` om den är satt. Om inte så körs servern på port `3000`.
+
 DSN är satt att köras på `DBWEBB_DSN` och den är satt. Om inte så körs den på `mongodb://localhost:27017/chess`.
 
 
 ## Länkar
-Demo av applikation [Demo av applikation](http://138.68.163.238/)
-Modulen på npm [oop-chess](https://www.npmjs.com/package/oop-chess)
-Modulen på github [oop-chess](https://www.github.com/Barelydead/oop-chess)
-Repot på studentservern [oop-chess](https://www.github.com/Barelydead/oop-chess)
+- Demo av applikation [Demo av applikation](http://138.68.163.238/)
+- Modulen på npm [oop-chess](https://www.npmjs.com/package/oop-chess)
+- Modulen på github [oop-chess](https://www.github.com/Barelydead/oop-chess)
+- Repot på studentservern [oop-chess](https://www.github.com/Barelydead/oop-chess)
