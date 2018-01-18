@@ -5,9 +5,12 @@ let db = require("../src/db/db-functions");
 
 /* GET about page. */
 router.get('/create', function(req, res) {
+    var info = req.query.info ? req.query.info : "";
+
     res.render('create-account', {
         title: 'create account',
-        path: 'user'
+        path: 'user',
+        info: info
     });
 });
 
@@ -19,7 +22,9 @@ router.post('/create', async function(req, res) {
     try {
         let user = await db.getUser("users", params.username);
 
-        console.log(user);
+        if (user[0]) {
+            res.redirect("/user/create?info=" + encodeURIComponent("Username already taken"));
+        }
     } catch (e) {
         console.log(e);
     }
