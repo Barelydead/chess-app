@@ -23,7 +23,7 @@ router.post('/create', function(req, res) {
     params.username = params.username.toLowerCase();
 
     db.insertItem("users", params);
-    res.redirect("/user/create");
+    res.redirect("/user/login?info=" + encodeURIComponent("New user was created"));
 });
 
 
@@ -42,7 +42,7 @@ router.get('/login', function(req, res) {
 router.get('/logout', function(req, res) {
     req.session.reset();
 
-    res.redirect("/");
+    res.redirect("/user/login?info=" + encodeURIComponent("You have been logged out"));
 });
 
 
