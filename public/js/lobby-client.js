@@ -53,7 +53,7 @@
             });
 
             listItem.append(button);
-            listItem.classList.add("room-item")
+            listItem.classList.add("room-item");
             roomList.append(listItem);
         }
     }
@@ -115,7 +115,10 @@
         var date = new Date(data.time);
         var options = {  year: 'numeric', month: 'numeric', day: 'numeric' };
 
-        msgHolder.innerHTML = data.from + " - " + date.toLocaleString('sv-SV', options) + ": " + data.message;
+        msgHolder.innerHTML = data.from
+                              + " - "
+                              + date.toLocaleString('sv-SV', options)
+                              + ": " + data.message;
         updateScroll();
     });
 

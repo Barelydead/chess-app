@@ -14,7 +14,7 @@
         "docker-stop-v": "docker-compose -f docker-compose-version.yml up -d",
         "start-docker": "docker-compose up -d",
         "stop-docker": "docker-compose down",
-        "test-scrutinizer": "nyc --all --reporter=clover mocha --reporter spec \"test/**/*.js\"  --exit",
+        "test-scrutinizer": "nyc --reporter=clover mocha --reporter spec \"test/**/*.js\"  --exit",
         "report-coveralls": "nyc report --reporter=text-lcov | coveralls",
         "report-codecov": "nyc report --reporter=lcov > coverage.lcov && codecov",
         "test": "nyc --all --reporter=html --reporter=text mocha --reporter spec \"test/**/*.js\" --exit",
