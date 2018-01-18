@@ -112,8 +112,10 @@
 
     socket.on('chat message', function(data) {
         var msgHolder = chat.appendChild(document.createElement("div"));
+        var date = new Date(data.time);
+        var options = {  year: 'numeric', month: 'numeric', day: 'numeric' };
 
-        msgHolder.innerHTML = data.from + " - " + data.time.toLocaleString() + ": " + data.message;
+        msgHolder.innerHTML = data.from + " - " + date.toLocaleString('sv-SV', options) + ": " + data.message;
         updateScroll();
     });
 
