@@ -13,7 +13,7 @@ router.get('/create', function(req, res) {
 
 
 /* GET about page. */
-router.post('/create', function(req, res) {
+router.post('/create', async function(req, res) {
     let params = req.body;
 
     try {
