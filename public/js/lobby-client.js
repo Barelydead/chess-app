@@ -100,6 +100,8 @@
                                   + date.toLocaleString('sv-SV', options)
                                   + ": " + data[i].message;
         }
+
+        updateScroll();
     });
 
 
@@ -115,23 +117,16 @@
         updateScroll();
     });
 
-    socket.on('recieve private', function(data) {
-        var msgHolder = chat.appendChild(document.createElement("div"));
-
-        msgHolder.innerHTML = "private " + data.from + ": " + data.message;
-        msgHolder.classList.add(data.class);
-    });
-
     socket.on("disconnect", username);
-
-
 
     window.onkeydown = function(e) {
         const key = e.keyCode;
 
         switch (key) {
             case 13:
-                sendMessage();
+                if (input === document.activeElement) {
+                    sendMessage();
+                }
                 break;
 
             default:

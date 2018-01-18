@@ -12,7 +12,7 @@ module.exports = function (io) {
             try {
                 let chat = await db.getChat();
 
-                io.sockets.emit("prefill chat", chat);
+                io.to(socket.id).emit("prefill chat", chat);
             } catch (e) {
                 console.log("DB ERROR: ", e);
             }
