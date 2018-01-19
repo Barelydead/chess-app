@@ -63,14 +63,14 @@ describe("Testing database functionallity", function() {
     //     });
     // });
 
-    describe("Get user based on name", function() {
-        it('Should return user. Assert password', async function() {
-
-        var user = await db.getUser("testUser", "user1");
-
-        expect(user[0].password).to.equal("password");
-        });
-    });
+    // describe("Get user based on name", function() {
+    //     it('Should return user. Assert password', async function() {
+    //
+    //     var user = await db.getUser("testUser", "user1");
+    //
+    //     expect(user[0].password).to.equal("password");
+    //     });
+    // });
 
 
     describe("Get chat", function() {
