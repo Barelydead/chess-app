@@ -8,7 +8,9 @@ filter:
 
 build:
     environment:
-        node: 'v8.4.0'
+        - node: 'v8.4.0'
+        - mongodb: true
+        
     tests:
         override:
             -
