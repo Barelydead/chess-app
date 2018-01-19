@@ -63,25 +63,25 @@ describe("Testing database functionallity", function() {
     //     });
     // });
 
-    // describe("Get user based on name", function() {
-    //     it('Should return user. Assert password', async function() {
-    //
-    //     var user = await db.getUser("testUser", "user1");
-    //
-    //     expect(user[0].password).to.equal("password");
-    //     });
-    // });
-    //
-    //
-    // describe("Get chat", function() {
-    //     it('Should get latest chat messages', async function() {
-    //
-    //     var chat = await db.getChat();
-    //
-    //     expect(chat[0].from).to.equal("andersson");
-    //     expect(chat.length).to.equal(1);
-    //     });
-    // });
+    describe("Get user based on name", function() {
+        it('Should return user. Assert password', async function() {
+
+        var user = await db.getUser("testUser", "user1");
+
+        expect(user[0].password).to.equal("password");
+        });
+    });
+
+
+    describe("Get chat", function() {
+        it('Should get latest chat messages', async function() {
+
+        var chat = await db.getChat();
+
+        expect(chat[0].from).to.equal("andersson");
+        expect(chat.length).to.equal(1);
+        });
+    });
     //
     //
     // describe("Get item", function() {
