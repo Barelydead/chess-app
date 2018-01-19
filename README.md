@@ -11,6 +11,26 @@ Detta repo är det avslutande projektet i ramverk2 kursen som går vid BTH - web
 ## Tekniker
 Denna sida är byggd med Node och använder ramveket express. Chat och spel funktionaliteten på sidan bygger på socket.io och databasen jag använt är mongoDB. Det är grunden till sidan och jag har inte använt något ramverk för frontenden. Istället så bygger jag mina vyer med vymotorn pug. Enligt mig en ganska enkel setup med många användningsområden.
 
+## Specifikation
+
+Övergripade specifikaion av funktionlitet.
+
+- [x] Det finns en fungerande chat i lobbyn
+- [x] Chatten hämtar de senaste inläggen när man går till lobby.
+- [x] Det går att skapa nya schackrum från lobbyn.
+- [x] Rummen tas bort från lobby när två spelare connectat.
+- [x] Man får upp information om vem som anslutit till spelet i inforutan
+- [x] Spelet avslutas om en spelare blir disconnected.
+- [x] Chatten scrollar automatiskt till slutet.
+- [x] Spelplanen orienteras olika beroende på vilken spelare man är.
+- [x] Det finns en about sida som besrkiver sidan och mig
+- [x] Det finns en startsida som beskriver innehållet.
+- [x] Det går att skapa ett konto
+- [x] Man får information om inloggning lyckats/misslyckats
+- [x] Funktionallitet för att logga in/ut
+- [ ] Responsiv desgin
+
+
 
 ## Install
 
@@ -34,9 +54,15 @@ npm start
 Mitt repo omfattas av unittest med mocha och linters eslint och stylelint.
 
 - Unittest: `npm test`
+    **För att testerna av databasen ska bli godkända så måste det finnas en mongodb-databas som går att komma åt via localhost, rekommenderat att köra `docker-compose up -d mongodb` innan test körs.**
     Detta kommando kör alla unit test och om allt blir grönt så körs linters.
-- Unittest i flera versioner av node: `npm run test-docker`, `npm run test-docker1`
-    Detta körs i versionerna 8, 9
+- Unittest i flera versioner av node: `npm run test-docker`, `npm run test-docker1`, `npm run test-docker2`
+    Detta körs i versionerna 6, 8 och 9.
+    *Tester via `npm run test-docker2` kommer inte bli godkända då koden kräver version av node högre än 6.*
+
+## Portar och DSN
+Node-servern körs som default på `DBWEBB_PORT` om den är satt. Om inte så körs servern på port `3000`.
+DSN är satt att köras på `DBWEBB_DSN` och den är satt. Om inte så körs den på `mongodb://localhost:27017/chess`.
 
 
 ##### Starta node och mongoDB i docker
@@ -64,16 +90,11 @@ För testning av min applikation har jag använt mig av mocha och supertest. Den
 
 Jag har också använt mig av supertest för att göra kontroller av olika routes och vilken statuskod de retunerar. Jag har inte dykt så djupt i hur man kan använda supertest men för det lilla jag ville testa så fungerade det väldigt smidigt. Det känns också som ett bra komplement till vanliga unittest då man på ett bättre sätt kan testa ett flöde i applikationen (typ inloggning och verifiering).
 
-Min totala kodtäckning av appen (backend) ligger på 56%. Jag är inte helt nöjd med täckningen men det som gjorde det extra svårt att testa är att jag använt mig av både socket och databasfrågor i flera delar av applikationen. Att hålla reda på både socketkoden sammtidigt som man ska testa databasen blev lite för komplicerat för tidsramet och därav så nöjer jag mig med de tester som finns.
+Min totala kodtäckning av appen (backend) ligger på 72%. Att notera är att frontend delarna inte är inkluderat i dessa tester. Jag valde att plocka bort dessa då jag inte hade något bra sätt genomföra tester för frontenden. Jag är överlag ganska nöjd med mina tester då de behandlar alla delar av appen från hjälpfunktioner, databas och socket-kod.
 
 
 ## Publicering
 Applikationen är publicerad till en driftserver. Servern är en dropplet från Digital ocean och för att kunna presentera sidan så har jag installerat nginx på servern tillsammans med node och mongo.
-
-## Ports and DSN
-Node-servern körs som default på `DBWEBB_PORT` om den är satt. Om inte så körs servern på port `3000`.
-
-DSN är satt att köras på `DBWEBB_DSN` och den är satt. Om inte så körs den på `mongodb://localhost:27017/chess`.
 
 
 ## Länkar
