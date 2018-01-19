@@ -98,7 +98,8 @@ Applikationen är publicerad till en driftserver. Servern är en dropplet från 
 
 
 ## Länkar
-- Demo av applikation [Demo av applikation](http://138.68.163.238/)
-- Modulen på npm [oop-chess](https://www.npmjs.com/package/oop-chess)
-- Modulen på github [oop-chess](https://www.github.com/Barelydead/oop-chess)
-- Repot på studentservern [oop-chess](https://www.github.com/Barelydead/oop-chess)
+Demo av applikation [Demo av applikation](http://138.68.163.238/)
+Projeket på github [http://github.com/Barelydead/chess-app](Projektet på github)
+Modulen på npm [oop-chess](https://www.npmjs.com/package/oop-chess)
+Modulen på github [oop-chess](https://www.github.com/Barelydead/oop-chess)
+Repot på studentservern [studentservern](http://www.student.bth.se/~chju16/dbwebb-kurser/ramverk2/me/)
