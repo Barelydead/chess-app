@@ -53,15 +53,14 @@ describe("Testing database functionallity", function() {
         });
     });
 
-    // describe("Get collection", function() {
-    //     it('should be length 2', async function() {
-    //
-    //     var users = await db.getCollection("testUser");
-    //
-    //     expect(users.length).to.equal(2);
-    //     expect(users[0].username).to.equal("user1");
-    //     });
-    // });
+    describe("Get collection", function() {
+        it('should be length 2', async function() {
+
+        var users = await db.getCollection("testUser");
+
+        expect(users.length).to.equal(2);
+        });
+    });
 
     // describe("Get user based on name", function() {
     //     it('Should return user. Assert password', async function() {
@@ -78,7 +77,6 @@ describe("Testing database functionallity", function() {
 
         var chat = await db.getChat();
 
-        expect(chat[0].from).to.equal("andersson");
         expect(chat.length).to.equal(1);
         });
     });
